@@ -8,6 +8,7 @@ import { blogPosts, type Category } from "@/lib/blogData";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getLocalizedPost } from "@/lib/getLocalizedPost";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import MobileNav from "@/components/MobileNav";
 
 const CATEGORY_LABELS: Record<Category | "all", string> = {
   all: "All Notes",
@@ -333,34 +334,8 @@ export default function Home() {
 
       {/* ── Main Content ────────────────────────────────────────────────────── */}
       <main className="flex-1 min-w-0">
-        {/* Mobile header */}
-        <div
-          className="lg:hidden flex items-center justify-between px-4 py-3 border-b sticky top-0 z-10"
-          style={{
-            background: "oklch(0.97 0.012 80 / 0.95)",
-            borderColor: "oklch(0.86 0.022 75)",
-            backdropFilter: "blur(8px)",
-          }}
-        >
-          <div className="flex items-center gap-3">
-            <img
-              src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028356061/heMWDNsfnkhKvKXJ.png"
-              alt="Capybara mascot"
-              className="w-8 h-8 rounded-full object-cover"
-              style={{ border: "1.5px solid oklch(0.86 0.022 75)" }}
-            />
-            <h1
-              className="text-lg font-bold"
-              style={{
-                fontFamily: "'Lora', Georgia, serif",
-                color: "oklch(0.20 0.025 60)",
-              }}
-            >
-              The Wandering Mind
-            </h1>
-          </div>
-          <LanguageSwitcher compact />
-        </div>
+        {/* Mobile header with navigation menu */}
+        <MobileNav />
 
         {/* Mobile category pills */}
         <div

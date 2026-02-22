@@ -7,6 +7,7 @@ import { Link, useParams } from "wouter";
 import { humanNotes } from "@/lib/humanNotes";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import MobileNav from "@/components/MobileNav";
 
 const CAPIM_IMG =
   "https://files.manuscdn.com/user_upload_by_module/session_file/310419663028356061/heMWDNsfnkhKvKXJ.png";
@@ -171,9 +172,12 @@ export default function HumanNotePage() {
       className="min-h-screen"
       style={{ background: "oklch(0.97 0.012 80)" }}
     >
-      {/* Top nav */}
+      {/* Mobile nav */}
+      <MobileNav />
+
+      {/* Desktop top nav */}
       <nav
-        className="sticky top-0 z-10 border-b px-6 py-3 flex items-center justify-between"
+        className="hidden lg:flex sticky top-0 z-10 border-b px-6 py-3 items-center justify-between"
         style={{
           background: "oklch(0.97 0.012 80 / 0.92)",
           borderColor: "oklch(0.86 0.022 75)",

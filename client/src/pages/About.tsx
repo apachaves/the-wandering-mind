@@ -4,6 +4,7 @@
 
 import { Link } from "wouter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import MobileNav from "@/components/MobileNav";
 
 const ANDERSON_IMG =
   "https://private-us-east-1.manuscdn.com/sessionFile/YCQUL38VmHZP7dzZBKAVDZ/sandbox/RYJosfEy8AnDQ4OV4OsZ8N-img-1_1771751068000_na1fn_YWJvdXQtYW5kZXJzb24.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvWUNRVUwzOFZtSFpQN2R6WkJLQVZEWi9zYW5kYm94L1JZSm9zZkV5OEFuRFE0T1Y0T3NaOE4taW1nLTFfMTc3MTc1MTA2ODAwMF9uYTFmbl9ZV0p2ZFhRdFlXNWtaWEp6YjI0LnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=aivH-ydY-OM0WnadoB6K2opIe0MjyC30S9wArotsmcUNOCFs2MXM~qlh34pRFmqn2XEAfCt9~x0faGAB2c~PEsqrHi32JGd1CMz7TQvSwbtWm3oQJ5KU1fcC13AppjMj~pPq32c-o59RnJ7leJ7UOqwbP19WHGrgpHd6HsTTsnYhfKq4-lASdF~JIow5jBUPniPqu2Q8YrUEy6n-R6Q6N4B1uQlUAM3ztRfqcevkjEKTlPZVc~cl5JYdzPpQa71zCO-fVWxPuMCWt6kHHXbJUF8fBOJ41EJdArWt53A7I1y5WeKK325s~kXsFpxsAxfRoWnn4KuMziW0f3JBBr962A__";
@@ -17,9 +18,12 @@ export default function About() {
       className="min-h-screen"
       style={{ background: "oklch(0.97 0.012 80)" }}
     >
-      {/* Top nav */}
+      {/* Mobile nav */}
+      <MobileNav />
+
+      {/* Desktop top nav */}
       <nav
-        className="sticky top-0 z-10 border-b px-6 py-3 flex items-center justify-between"
+        className="hidden lg:flex sticky top-0 z-10 border-b px-6 py-3 items-center justify-between"
         style={{
           background: "oklch(0.97 0.012 80 / 0.92)",
           borderColor: "oklch(0.86 0.022 75)",

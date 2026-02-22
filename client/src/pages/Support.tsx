@@ -4,6 +4,7 @@
 
 import { Link } from "wouter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import MobileNav from "@/components/MobileNav";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const CAPIM_IMG =
@@ -120,9 +121,12 @@ export default function Support() {
       className="min-h-screen"
       style={{ background: "oklch(0.97 0.012 80)" }}
     >
-      {/* Top nav */}
+      {/* Mobile nav */}
+      <MobileNav />
+
+      {/* Desktop top nav */}
       <nav
-        className="sticky top-0 z-10 border-b px-6 py-3 flex items-center justify-between"
+        className="hidden lg:flex sticky top-0 z-10 border-b px-6 py-3 items-center justify-between"
         style={{
           background: "oklch(0.97 0.012 80 / 0.92)",
           borderColor: "oklch(0.86 0.022 75)",
