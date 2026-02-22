@@ -7,7 +7,7 @@ import { Link } from "wouter";
 import { blogPosts, type Category } from "@/lib/blogData";
 
 const CATEGORY_LABELS: Record<Category | "all", string> = {
-  all: "All Dispatches",
+  all: "All Notes",
   philosophy: "Philosophy",
   tech: "Technology",
   nature: "Nature",
@@ -206,7 +206,7 @@ export default function Home() {
               fontStyle: "italic",
             }}
           >
-            Dispatches on nature, technology,<br />and the space between.
+            Notes on nature, technology,<br />and the space between.
           </p>
         </div>
 
@@ -266,6 +266,32 @@ export default function Home() {
             ))}
           </ul>
         </nav>
+
+        {/* About link */}
+        <div className="px-4 pb-2">
+          <Link
+            href="/about"
+            className="flex items-center gap-2 px-3 py-2.5 rounded-sm text-sm w-full transition-all duration-200"
+            style={{
+              fontFamily: "'Source Serif 4', Georgia, serif",
+              color: "oklch(0.40 0.025 65)",
+              borderLeft: "2px solid transparent",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.background = "oklch(0.90 0.030 145)";
+              (e.currentTarget as HTMLElement).style.color = "oklch(0.35 0.10 155)";
+              (e.currentTarget as HTMLElement).style.borderLeftColor = "oklch(0.42 0.10 155)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.background = "transparent";
+              (e.currentTarget as HTMLElement).style.color = "oklch(0.40 0.025 65)";
+              (e.currentTarget as HTMLElement).style.borderLeftColor = "transparent";
+            }}
+          >
+            <span style={{ fontSize: "0.75rem", opacity: 0.7 }}>✦</span>
+            About Us
+          </Link>
+        </div>
 
         {/* Footer */}
         <div
@@ -359,7 +385,7 @@ export default function Home() {
                 fontStyle: "italic",
               }}
             >
-              {filtered.length} {filtered.length === 1 ? "entry" : "entries"}, sorted by recency
+              {filtered.length} {filtered.length === 1 ? "note" : "notes"}, sorted by recency
             </p>
           </div>
         </div>
@@ -381,7 +407,7 @@ export default function Home() {
                   fontStyle: "italic",
                 }}
               >
-                No entries in this category yet.
+                No notes in this category yet.
               </p>
             </div>
           ) : (
