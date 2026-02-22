@@ -1,6 +1,6 @@
 // The Wandering Mind — App Router
-// Design: Biopunk Minimalism — dark substrate, bioluminescent accents
-// Identity: Green × Blue MTG (Simic), pantheism vs transhumanism
+// Design: Warm Naturalist — parchment, forest green, cozy intellectual
+// Identity: The tension between organic life and engineered systems
 
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -25,7 +25,7 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="dark">
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <Router />
