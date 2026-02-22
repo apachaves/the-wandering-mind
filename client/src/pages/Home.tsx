@@ -2,13 +2,15 @@
 // Design: Warm Naturalist — parchment sidebar, serif typography, cozy card grid
 // Mood: calm, intellectual, like browsing a well-curated library
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Link } from "wouter";
 import { blogPosts, type Category } from "@/lib/blogData";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getLocalizedPost } from "@/lib/getLocalizedPost";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import MobileNav from "@/components/MobileNav";
+
+const PAGE_TITLE = "The Wandering Mind \u2014 Notes on Nature, Technology & Philosophy";
 
 const CATEGORY_LABELS: Record<Category | "all", string> = {
   all: "All Notes",
@@ -152,6 +154,10 @@ function PostCard({ post, index }: { post: (typeof blogPosts)[0]; index: number 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<Category | "all">("all");
   const { language } = useLanguage();
+
+  useEffect(() => {
+    document.title = PAGE_TITLE;
+  }, []);
 
   const filtered = useMemo(() => {
     const sorted = [...blogPosts].sort(
