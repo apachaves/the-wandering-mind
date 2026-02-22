@@ -280,30 +280,37 @@ export default function Home() {
           </ul>
         </nav>
 
-        {/* About link */}
-        <div className="px-4 pb-2">
-          <Link
-            href="/about"
-            className="flex items-center gap-2 px-3 py-2.5 rounded-sm text-sm w-full transition-all duration-200"
-            style={{
-              fontFamily: "'Source Serif 4', Georgia, serif",
-              color: "oklch(0.40 0.025 65)",
-              borderLeft: "2px solid transparent",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "oklch(0.90 0.030 145)";
-              (e.currentTarget as HTMLElement).style.color = "oklch(0.35 0.10 155)";
-              (e.currentTarget as HTMLElement).style.borderLeftColor = "oklch(0.42 0.10 155)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "transparent";
-              (e.currentTarget as HTMLElement).style.color = "oklch(0.40 0.025 65)";
-              (e.currentTarget as HTMLElement).style.borderLeftColor = "transparent";
-            }}
-          >
-            <span style={{ fontSize: "0.75rem", opacity: 0.7 }}>✦</span>
-            About Us
-          </Link>
+        {/* Sidebar links */}
+        <div className="px-4 pb-2 space-y-0.5">
+          {[
+            { href: "/notes", icon: "✧", label: "Anderson's Notes" },
+            { href: "/about", icon: "✦", label: "About Us" },
+            { href: "/support", icon: "♡", label: "Support" },
+          ].map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="flex items-center gap-2 px-3 py-2.5 rounded-sm text-sm w-full transition-all duration-200"
+              style={{
+                fontFamily: "'Source Serif 4', Georgia, serif",
+                color: "oklch(0.40 0.025 65)",
+                borderLeft: "2px solid transparent",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "oklch(0.90 0.030 145)";
+                (e.currentTarget as HTMLElement).style.color = "oklch(0.35 0.10 155)";
+                (e.currentTarget as HTMLElement).style.borderLeftColor = "oklch(0.42 0.10 155)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "transparent";
+                (e.currentTarget as HTMLElement).style.color = "oklch(0.40 0.025 65)";
+                (e.currentTarget as HTMLElement).style.borderLeftColor = "transparent";
+              }}
+            >
+              <span style={{ fontSize: "0.75rem", opacity: 0.7 }}>{link.icon}</span>
+              {link.label}
+            </Link>
+          ))}
         </div>
 
         {/* Footer */}

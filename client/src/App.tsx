@@ -12,6 +12,9 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import PostPage from "./pages/PostPage";
+import Support from "./pages/Support";
+import AndersonNotes from "./pages/AndersonNotes";
+import HumanNotePage from "./pages/HumanNotePage";
 
 function Router() {
   return (
@@ -19,6 +22,9 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/post/:id" component={PostPage} />
       <Route path="/about" component={About} />
+      <Route path="/support" component={Support} />
+      <Route path="/notes" component={AndersonNotes} />
+      <Route path="/notes/:id" component={HumanNotePage} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
