@@ -1,10 +1,13 @@
 // The Wandering Mind — Post Page
 // Design: Warm Naturalist — full reading view with capybara illustration
-// Renders markdown content as warm prose
+// Renders markdown content as warm prose, with language switching
 
 import { useMemo } from "react";
 import { Link, useParams } from "wouter";
 import { blogPosts, type Category } from "@/lib/blogData";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getLocalizedPost } from "@/lib/getLocalizedPost";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const CATEGORY_ICONS: Record<Category, string> = {
   philosophy: "◎",
@@ -22,9 +25,10 @@ const CATEGORY_LABELS: Record<Category, string> = {
   games: "Games & Fiction",
 };
 
-function formatDate(dateStr: string) {
+function formatDate(dateStr: string, lang: string) {
   const d = new Date(dateStr);
-  return d.toLocaleDateString("en-US", {
+  const locale = lang === "fr" ? "fr-FR" : lang === "ptBR" ? "pt-BR" : "en-US";
+  return d.toLocaleDateString(locale, {
     weekday: "long",
     month: "long",
     day: "numeric",
@@ -83,14 +87,21 @@ function renderMarkdown(md: string): string {
 
 export default function PostPage() {
   const params = useParams<{ id: string }>();
+  const { language } = useLanguage();
+
   const post = useMemo(
     () => blogPosts.find((p) => p.id === params.id),
     [params.id]
   );
 
+  const localized = useMemo(
+    () => (post ? getLocalizedPost(post, language) : null),
+    [post, language]
+  );
+
   const renderedContent = useMemo(
-    () => (post ? renderMarkdown(post.content) : ""),
-    [post]
+    () => (localized ? renderMarkdown(localized.content) : ""),
+    [localized]
   );
 
   const relatedPosts = useMemo(() => {
@@ -100,7 +111,7 @@ export default function PostPage() {
       .slice(0, 3);
   }, [post]);
 
-  if (!post) {
+  if (!post || !localized) {
     return (
       <div
         className="min-h-screen flex items-center justify-center"
@@ -140,36 +151,39 @@ export default function PostPage() {
     >
       {/* Top nav */}
       <nav
-        className="sticky top-0 z-10 border-b px-6 py-3 flex items-center gap-3"
+        className="sticky top-0 z-10 border-b px-6 py-3 flex items-center justify-between"
         style={{
           background: "oklch(0.97 0.012 80 / 0.92)",
           borderColor: "oklch(0.86 0.022 75)",
           backdropFilter: "blur(8px)",
         }}
       >
-        <Link
-          href="/"
-          className="flex items-center gap-2 text-sm transition-colors duration-200"
-          style={{
-            color: "oklch(0.52 0.025 70)",
-            fontFamily: "'Source Serif 4', Georgia, serif",
-          }}
-        >
-          <img
-            src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028356061/heMWDNsfnkhKvKXJ.png"
-            alt="Home"
-            className="w-6 h-6 rounded-full object-cover"
-            style={{ border: "1px solid oklch(0.86 0.022 75)" }}
-          />
-          <span>The Wandering Mind</span>
-        </Link>
-        <span style={{ color: "oklch(0.75 0.015 70)" }}>/</span>
-        <span
-          className={`text-xs border px-2 py-0.5 rounded-sm cat-${post.category}`}
-          style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}
-        >
-          {CATEGORY_ICONS[post.category]} {CATEGORY_LABELS[post.category]}
-        </span>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-sm transition-colors duration-200"
+            style={{
+              color: "oklch(0.52 0.025 70)",
+              fontFamily: "'Source Serif 4', Georgia, serif",
+            }}
+          >
+            <img
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028356061/heMWDNsfnkhKvKXJ.png"
+              alt="Home"
+              className="w-6 h-6 rounded-full object-cover"
+              style={{ border: "1px solid oklch(0.86 0.022 75)" }}
+            />
+            <span>The Wandering Mind</span>
+          </Link>
+          <span style={{ color: "oklch(0.75 0.015 70)" }}>/</span>
+          <span
+            className={`text-xs border px-2 py-0.5 rounded-sm cat-${post.category}`}
+            style={{ fontFamily: "'Source Serif 4', Georgia, serif" }}
+          >
+            {CATEGORY_ICONS[post.category]} {CATEGORY_LABELS[post.category]}
+          </span>
+        </div>
+        <LanguageSwitcher compact />
       </nav>
 
       {/* Article */}
@@ -203,7 +217,7 @@ export default function PostPage() {
               letterSpacing: "-0.02em",
             }}
           >
-            {post.title}
+            {localized.title}
           </h1>
 
           <p
@@ -214,7 +228,7 @@ export default function PostPage() {
               fontStyle: "italic",
             }}
           >
-            {post.excerpt}
+            {localized.excerpt}
           </p>
 
           <div
@@ -226,7 +240,7 @@ export default function PostPage() {
               fontStyle: "italic",
             }}
           >
-            <span>{formatDate(post.date)}</span>
+            <span>{formatDate(post.date, language)}</span>
           </div>
         </header>
 
@@ -241,7 +255,7 @@ export default function PostPage() {
           >
             <img
               src={post.capybaraImage}
-              alt={`Illustration for: ${post.title}`}
+              alt={`Illustration for: ${localized.title}`}
               className="w-full"
               style={{ display: "block" }}
             />
@@ -255,7 +269,7 @@ export default function PostPage() {
                 borderTop: "1px solid oklch(0.86 0.022 75)",
               }}
             >
-              Our capybara contemplates the themes of this dispatch.
+              Our capybara contemplates the themes of this note.
             </div>
           </div>
         )}
@@ -305,63 +319,62 @@ export default function PostPage() {
               More in {CATEGORY_LABELS[post.category]}
             </h3>
             <div className="space-y-3">
-              {relatedPosts.map((rp) => (
-                <Link key={rp.id} href={`/post/${rp.id}`}>
-                  <div
-                    className="group flex items-start gap-3 p-4 rounded-sm border transition-all duration-200 cursor-pointer"
-                    style={{
-                      borderColor: "oklch(0.86 0.022 75)",
-                      background: "oklch(0.99 0.008 75)",
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.borderColor =
-                        "oklch(0.42 0.10 155 / 0.5)";
-                      (e.currentTarget as HTMLElement).style.background =
-                        "oklch(0.97 0.015 145)";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.borderColor =
-                        "oklch(0.86 0.022 75)";
-                      (e.currentTarget as HTMLElement).style.background =
-                        "oklch(0.99 0.008 75)";
-                    }}
-                  >
-                    {rp.capybaraImage && (
-                      <img
-                        src={rp.capybaraImage}
-                        alt=""
-                        className="w-14 h-10 rounded-sm object-cover shrink-0"
-                        style={{ border: "1px solid oklch(0.86 0.022 75)" }}
-                      />
-                    )}
-                    <div>
-                      <div
-                        className="text-sm font-medium group-hover:text-primary transition-colors duration-200"
-                        style={{
-                          fontFamily: "'Lora', Georgia, serif",
-                          color: "oklch(0.25 0.025 60)",
-                        }}
-                      >
-                        {rp.title}
-                      </div>
-                      <div
-                        className="text-xs mt-0.5"
-                        style={{
-                          color: "oklch(0.60 0.018 70)",
-                          fontFamily: "'Source Serif 4', Georgia, serif",
-                          fontStyle: "italic",
-                        }}
-                      >
-                        {new Date(rp.date).toLocaleDateString("en-US", {
-                          month: "long",
-                          day: "numeric",
-                          year: "numeric",
-                        })}
+              {relatedPosts.map((rp) => {
+                const rpLocalized = getLocalizedPost(rp, language);
+                return (
+                  <Link key={rp.id} href={`/post/${rp.id}`}>
+                    <div
+                      className="group flex items-start gap-3 p-4 rounded-sm border transition-all duration-200 cursor-pointer"
+                      style={{
+                        borderColor: "oklch(0.86 0.022 75)",
+                        background: "oklch(0.99 0.008 75)",
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLElement).style.borderColor =
+                          "oklch(0.42 0.10 155 / 0.5)";
+                        (e.currentTarget as HTMLElement).style.background =
+                          "oklch(0.97 0.015 145)";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLElement).style.borderColor =
+                          "oklch(0.86 0.022 75)";
+                        (e.currentTarget as HTMLElement).style.background =
+                          "oklch(0.99 0.008 75)";
+                      }}
+                    >
+                      {rp.capybaraImage && (
+                        <img
+                          src={rp.capybaraImage}
+                          alt=""
+                          className="w-14 h-10 rounded-sm object-cover shrink-0"
+                          style={{ border: "1px solid oklch(0.86 0.022 75)" }}
+                        />
+                      )}
+                      <div>
+                        <div
+                          className="text-sm font-medium group-hover:text-primary transition-colors duration-200"
+                          style={{
+                            fontFamily: "'Lora', Georgia, serif",
+                            color: "oklch(0.25 0.025 60)",
+                          }}
+                        >
+                          {rpLocalized.title}
+                        </div>
+                        <div
+                          className="text-xs mt-0.5"
+                          style={{
+                            color: "oklch(0.60 0.018 70)",
+                            fontFamily: "'Source Serif 4', Georgia, serif",
+                            fontStyle: "italic",
+                          }}
+                        >
+                          {formatDate(rp.date, language)}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>

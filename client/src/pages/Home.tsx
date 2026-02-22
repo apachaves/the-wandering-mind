@@ -5,6 +5,9 @@
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
 import { blogPosts, type Category } from "@/lib/blogData";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getLocalizedPost } from "@/lib/getLocalizedPost";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const CATEGORY_LABELS: Record<Category | "all", string> = {
   all: "All Notes",
@@ -23,9 +26,10 @@ const CATEGORY_ICONS: Record<Category, string> = {
   games: "◈",
 };
 
-function formatDate(dateStr: string) {
+function formatDate(dateStr: string, lang: string) {
   const d = new Date(dateStr);
-  return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+  const locale = lang === "fr" ? "fr-FR" : lang === "ptBR" ? "pt-BR" : "en-US";
+  return d.toLocaleDateString(locale, { month: "long", day: "numeric", year: "numeric" });
 }
 
 function CategoryBadge({ category }: { category: Category }) {
@@ -41,6 +45,9 @@ function CategoryBadge({ category }: { category: Category }) {
 }
 
 function PostCard({ post, index }: { post: (typeof blogPosts)[0]; index: number }) {
+  const { language } = useLanguage();
+  const localized = getLocalizedPost(post, language);
+
   return (
     <Link href={`/post/${post.id}`}>
       <article
@@ -55,7 +62,7 @@ function PostCard({ post, index }: { post: (typeof blogPosts)[0]; index: number 
           <div className="w-full h-36 overflow-hidden">
             <img
               src={post.capybaraImage}
-              alt={`Illustration for: ${post.title}`}
+              alt={`Illustration for: ${localized.title}`}
               className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
             />
           </div>
@@ -73,7 +80,7 @@ function PostCard({ post, index }: { post: (typeof blogPosts)[0]; index: number 
                 fontStyle: "italic",
               }}
             >
-              {formatDate(post.date)}
+              {formatDate(post.date, language)}
             </span>
           </div>
 
@@ -86,7 +93,7 @@ function PostCard({ post, index }: { post: (typeof blogPosts)[0]; index: number 
               letterSpacing: "-0.01em",
             }}
           >
-            {post.title}
+            {localized.title}
           </h2>
 
           {/* Excerpt */}
@@ -97,7 +104,7 @@ function PostCard({ post, index }: { post: (typeof blogPosts)[0]; index: number 
               fontFamily: "'Source Serif 4', Georgia, serif",
             }}
           >
-            {post.excerpt}
+            {localized.excerpt}
           </p>
 
           {/* Footer: tags + read time */}
@@ -143,6 +150,7 @@ function PostCard({ post, index }: { post: (typeof blogPosts)[0]; index: number 
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<Category | "all">("all");
+  const { language } = useLanguage();
 
   const filtered = useMemo(() => {
     const sorted = [...blogPosts].sort(
@@ -208,6 +216,11 @@ export default function Home() {
           >
             Notes on nature, technology,<br />and the space between.
           </p>
+
+          {/* Language switcher */}
+          <div className="mt-3 flex justify-center">
+            <LanguageSwitcher />
+          </div>
         </div>
 
         {/* Navigation */}
@@ -315,28 +328,31 @@ export default function Home() {
       <main className="flex-1 min-w-0">
         {/* Mobile header */}
         <div
-          className="lg:hidden flex items-center gap-3 px-4 py-3 border-b sticky top-0 z-10"
+          className="lg:hidden flex items-center justify-between px-4 py-3 border-b sticky top-0 z-10"
           style={{
             background: "oklch(0.97 0.012 80 / 0.95)",
             borderColor: "oklch(0.86 0.022 75)",
             backdropFilter: "blur(8px)",
           }}
         >
-          <img
-            src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028356061/heMWDNsfnkhKvKXJ.png"
-            alt="Capybara mascot"
-            className="w-8 h-8 rounded-full object-cover"
-            style={{ border: "1.5px solid oklch(0.86 0.022 75)" }}
-          />
-          <h1
-            className="text-lg font-bold"
-            style={{
-              fontFamily: "'Lora', Georgia, serif",
-              color: "oklch(0.20 0.025 60)",
-            }}
-          >
-            The Wandering Mind
-          </h1>
+          <div className="flex items-center gap-3">
+            <img
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028356061/heMWDNsfnkhKvKXJ.png"
+              alt="Capybara mascot"
+              className="w-8 h-8 rounded-full object-cover"
+              style={{ border: "1.5px solid oklch(0.86 0.022 75)" }}
+            />
+            <h1
+              className="text-lg font-bold"
+              style={{
+                fontFamily: "'Lora', Georgia, serif",
+                color: "oklch(0.20 0.025 60)",
+              }}
+            >
+              The Wandering Mind
+            </h1>
+          </div>
+          <LanguageSwitcher compact />
         </div>
 
         {/* Mobile category pills */}
