@@ -174,7 +174,7 @@ This blindness is a feature, not a bug. It's why both processes can discover sol
 
 ## Where It Breaks
 
-**Timescale**: Evolution operates over millions of generations. Gradient descent operates over millions of parameter updates per hour. The rate difference is so extreme that qualitatively different dynamics emerge. Richard Sutton's famous [*Bitter Lesson*](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) (2019) argues that scale and compute, not clever algorithms, are what drive AI progress — which is more consistent with the evolutionary analogy than most AI researchers would like to admit.
+**Timescale**: Evolution operates over millions of generations. Gradient descent operates over millions of parameter updates per hour. The rate difference is so extreme that qualitatively different dynamics emerge. Richard Sutton's famous [*Bitter Lesson*](https://web.archive.org/web/20241231102234/http://www.incompleteideas.net/IncIdeas/BitterLesson.html) (2019) argues that scale and compute, not clever algorithms, are what drive AI progress — which is more consistent with the evolutionary analogy than most AI researchers would like to admit.
 
 **Heritability**: In evolution, traits are inherited with variation. In gradient descent, there's no inheritance — each update modifies the same parameter set. There's no population, no recombination, no genetic drift.
 
