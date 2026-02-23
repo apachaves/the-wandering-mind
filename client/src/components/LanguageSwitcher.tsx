@@ -1,4 +1,4 @@
-// The Wandering Mind — Language Switcher
+// Capim — Language Switcher
 // Design: Warm Naturalist — small pill buttons, forest green active state
 
 import { useLanguage, LANGUAGE_FLAGS, LANGUAGE_LABELS, type Language } from "@/contexts/LanguageContext";

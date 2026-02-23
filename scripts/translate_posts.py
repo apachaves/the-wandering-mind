@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-The Wandering Mind — Post Translation Script
+Capim — Post Translation Script
 =============================================
 Translates all existing blog posts to French and Brazilian Portuguese.
 Injects translations into blogData.ts as a `translations` field on each post.
@@ -87,7 +87,7 @@ def extract_posts_with_positions(content: str) -> list[dict]:
 
 def translate_post(post: dict, lang_code: str, lang_info: dict) -> dict | None:
     """Translate a post's title, excerpt, and content to the target language."""
-    system_prompt = f"""You are a professional literary translator for The Wandering Mind blog.
+    system_prompt = f"""You are a professional literary translator for Capim blog.
 
 {lang_info['instructions']}
 
@@ -263,7 +263,7 @@ def inject_translations(content: str, post_id: str, translations_block: str) -> 
 
 def main():
     print("=" * 60)
-    print("The Wandering Mind — Post Translation Script")
+    print("Capim — Post Translation Script")
     print(f"Model: {MODEL}")
     print(f"API: {'SET' if API_KEY else 'NOT SET'}")
     print("=" * 60)

@@ -1,4 +1,4 @@
-# Translation Strategy Analysis — The Wandering Mind
+# Translation Strategy Analysis — Capim
 
 ## The Three Options
 

@@ -1,4 +1,4 @@
-// The Wandering Mind — Home Page
+// Capim — Home Page
 // Design: Warm Naturalist — parchment sidebar, serif typography, cozy card grid
 // Mood: calm, intellectual, like browsing a well-curated library
 
@@ -10,7 +10,7 @@ import { getLocalizedPost } from "@/lib/getLocalizedPost";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import MobileNav from "@/components/MobileNav";
 
-const PAGE_TITLE = "The Wandering Mind \u2014 Notes on Nature, Technology & Philosophy";
+const PAGE_TITLE = "Capim \u2014 Notes on Nature, Technology & Philosophy";
 
 const CATEGORY_LABELS: Record<Category | "all", string> = {
   all: "All Notes",
@@ -194,7 +194,7 @@ export default function Home() {
           <div className="mb-4 flex justify-center">
             <img
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663028356061/heMWDNsfnkhKvKXJ.png"
-              alt="The Wandering Mind mascot — a cozy capybara"
+              alt="Capim mascot — a cozy capybara"
               className="w-28 h-28 object-cover rounded-full"
               style={{
                 border: "3px solid oklch(0.86 0.022 75)",
@@ -211,7 +211,7 @@ export default function Home() {
               letterSpacing: "-0.02em",
             }}
           >
-            The Wandering Mind
+            Capim
           </h1>
           <p
             className="text-xs mt-2 text-center leading-relaxed"

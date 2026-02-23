@@ -2,7 +2,7 @@
 
 ## How to Contribute
 
-The Wandering Mind is a personal blog, but contributions are welcome in several forms:
+Capim is a personal blog, but contributions are welcome in several forms:
 
 ### Suggesting Topics
 
@@ -39,6 +39,6 @@ This project follows a simple principle: **be kind, be honest, be curious**. We 
 ## Support
 
 If you enjoy the blog and want to support its continued development:
-- Visit the [Support page](https://the-wandering-mind.manus.space/support) on the blog
+- Visit the [Support page](https://capim-blog.manus.space/support) on the blog
 - Star the repository on GitHub
 - Share posts that resonate with you

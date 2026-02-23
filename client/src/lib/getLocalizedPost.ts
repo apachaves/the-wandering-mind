@@ -1,4 +1,4 @@
-// The Wandering Mind — Localization helper
+// Capim — Localization helper
 // Returns the title, excerpt, and content for a post in the active language.
 // Falls back to English if the translation is missing.
 

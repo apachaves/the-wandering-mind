@@ -1,4 +1,4 @@
-# The Wandering Mind — Design Brainstorm
+# Capim — Design Brainstorm
 
 ## Blog Identity
 Green × Blue MTG (Simic), pantheism vs transhumanism, nature vs nurture.

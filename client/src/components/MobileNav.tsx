@@ -1,4 +1,4 @@
-// The Wandering Mind — Mobile Navigation Component
+// Capim — Mobile Navigation Component
 // Design: Warm Naturalist — slide-down menu with all navigation links
 // Used on all pages to ensure Anderson's Notes, About, and Support are accessible on mobile
 
@@ -96,7 +96,7 @@ export default function MobileNav() {
                 color: "oklch(0.20 0.025 60)",
               }}
             >
-              The Wandering Mind
+              Capim
             </h1>
           </Link>
         </div>

@@ -1,4 +1,4 @@
-// The Wandering Mind — Language Context
+// Capim — Language Context
 // Provides persistent language selection (EN / FR / PT-BR) via localStorage
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";

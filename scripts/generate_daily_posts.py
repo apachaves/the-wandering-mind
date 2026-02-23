@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-The Wandering Mind — Daily Post Generator
+Capim — Daily Post Generator
 ==========================================
 Generates one new blog post per category, injects it into blogData.ts,
 generates a contextual capybara illustration, and uploads it to CDN.
@@ -55,7 +55,7 @@ IMAGE_MODEL = "dall-e-3"
 # ── Blog identity ──────────────────────────────────────────────────────────────
 
 BLOG_IDENTITY = """
-The Wandering Mind is a personal journal blog exploring a deep tension that runs through all of 
+Capim is a personal journal blog exploring a deep tension that runs through all of 
 human thought and culture:
 
 One worldview sees the world as a living, organic, interconnected whole — where meaning emerges 
@@ -185,7 +185,7 @@ def generate_post(category: str, existing_posts: list[dict]) -> dict | None:
         for p in category_posts:
             existing_summary += f"- [{p['date']}] {p['title']} (tags: {', '.join(p['tags'])})\n"
 
-    system_prompt = f"""You are the author of The Wandering Mind, a personal journal blog.
+    system_prompt = f"""You are the author of Capim, a personal journal blog.
 {BLOG_IDENTITY}
 
 Your task is to write ONE new blog post for the category: {category.upper()}
@@ -375,7 +375,7 @@ def run_build() -> bool:
 
 def main():
     print("=" * 60)
-    print("The Wandering Mind — Daily Post Generator")
+    print("Capim — Daily Post Generator")
     print(f"Date: {TODAY} | Model: {MODEL}")
     print(f"API: {'SET' if API_KEY else 'NOT SET'}")
     print("=" * 60)

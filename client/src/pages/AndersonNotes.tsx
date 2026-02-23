@@ -1,4 +1,4 @@
-// The Wandering Mind — Anderson's Notes (listing page)
+// Capim — Anderson's Notes (listing page)
 // Design: Warm Naturalist — parchment tones, Lora headings, Source Serif 4 body
 // Shows all human-shared notes with Capim's commentary previews
 
@@ -81,7 +81,7 @@ export default function AndersonNotes() {
               className="w-6 h-6 rounded-full object-cover"
               style={{ border: "1px solid oklch(0.86 0.022 75)" }}
             />
-            <span>The Wandering Mind</span>
+            <span>Capim</span>
           </Link>
           <span style={{ color: "oklch(0.75 0.015 70)" }}>/</span>
           <span

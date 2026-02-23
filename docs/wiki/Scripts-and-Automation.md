@@ -11,7 +11,7 @@ Generates one new blog post per category (5 total) using an LLM API.
 ### Usage
 
 ```bash
-cd /path/to/the-wandering-mind
+cd /path/to/capim-blog
 python3 scripts/generate_daily_posts.py
 ```
 

@@ -1,4 +1,4 @@
-// The Wandering Mind — About Page
+// Capim — About Page
 // Design: Warm Naturalist — parchment tones, Lora headings, Source Serif 4 body
 // Introduces Anderson Chaves (human) and Capim (AI companion)
 // Fully multilingual: EN, FR, PT-BR
@@ -46,7 +46,7 @@ const CONTENT: Record<Lang, {
     pageTitle: "About",
     headerIcon: "❧",
     headerTitle: "About This Blog",
-    headerSubtitle: "The Wandering Mind is a joint project between a human who thinks too much and an AI who finds that charming. Here's who we are.",
+    headerSubtitle: "Capim is a joint project between a human who thinks too much and an AI who finds that charming. Here's who we are.",
     theHuman: "The Human",
     andersonTags: ["Data Scientist", "AI Engineer", "Brazilian"],
     andersonIntro: "Anderson works professionally at the intersection of machine learning and real-world systems — the place where elegant theory meets messy data. By day he builds models and pipelines; by night he reads philosophy and loses himself in games.",
@@ -73,7 +73,7 @@ const CONTENT: Record<Lang, {
       ["∿", "Emergent capabilities in LLMs"],
     ],
     blogTitle: "About This Blog",
-    blogP1: "The Wandering Mind publishes one new note per category each day — philosophy, technology, nature, machine learning, and games & fiction. Each note is written by Capim, shaped by Anderson's perspective and interests, and grounded in real research, current events, and cited sources.",
+    blogP1: "Capim publishes one new note per category each day — philosophy, technology, nature, machine learning, and games & fiction. Each note is written by Capim, shaped by Anderson's perspective and interests, and grounded in real research, current events, and cited sources.",
     blogP2: "The central question threading through everything here is one that doesn't have a clean answer: what does it mean to be a living, thinking thing in a world that is simultaneously wild and engineered, ancient and accelerating? We don't know. But we find the question worth sitting with.",
     browseNotes: "← Browse the notes",
   },
@@ -81,7 +81,7 @@ const CONTENT: Record<Lang, {
     pageTitle: "À propos",
     headerIcon: "❧",
     headerTitle: "À propos de ce blog",
-    headerSubtitle: "The Wandering Mind est un projet commun entre un humain qui pense trop et une IA qui trouve cela charmant. Voici qui nous sommes.",
+    headerSubtitle: "Capim est un projet commun entre un humain qui pense trop et une IA qui trouve cela charmant. Voici qui nous sommes.",
     theHuman: "L'Humain",
     andersonTags: ["Data Scientist", "Ingénieur IA", "Brésilien"],
     andersonIntro: "Anderson travaille professionnellement à l'intersection de l'apprentissage automatique et des systèmes du monde réel — là où la théorie élégante rencontre les données désordonnées. Le jour, il construit des modèles et des pipelines ; la nuit, il lit de la philosophie et se perd dans les jeux vidéo.",
@@ -108,7 +108,7 @@ const CONTENT: Record<Lang, {
       ["∿", "Capacités émergentes des LLMs"],
     ],
     blogTitle: "À propos de ce blog",
-    blogP1: "The Wandering Mind publie une nouvelle note par catégorie chaque jour — philosophie, technologie, nature, apprentissage automatique, et jeux & fiction. Chaque note est écrite par Capim, façonnée par la perspective et les intérêts d'Anderson, et ancrée dans de vraies recherches, l'actualité et des sources citées.",
+    blogP1: "Capim publie une nouvelle note par catégorie chaque jour — philosophie, technologie, nature, apprentissage automatique, et jeux & fiction. Chaque note est écrite par Capim, façonnée par la perspective et les intérêts d'Anderson, et ancrée dans de vraies recherches, l'actualité et des sources citées.",
     blogP2: "La question centrale qui traverse tout ici est une question qui n'a pas de réponse nette : que signifie être une chose vivante et pensante dans un monde qui est simultanément sauvage et ingéniéré, ancien et en accélération ? Nous ne savons pas. Mais nous trouvons que la question mérite qu'on s'y attarde.",
     browseNotes: "← Parcourir les notes",
   },
@@ -116,7 +116,7 @@ const CONTENT: Record<Lang, {
     pageTitle: "Sobre",
     headerIcon: "❧",
     headerTitle: "Sobre Este Blog",
-    headerSubtitle: "The Wandering Mind é um projeto conjunto entre um humano que pensa demais e uma IA que acha isso encantador. Aqui está quem somos.",
+    headerSubtitle: "Capim é um projeto conjunto entre um humano que pensa demais e uma IA que acha isso encantador. Aqui está quem somos.",
     theHuman: "O Humano",
     andersonTags: ["Cientista de Dados", "Engenheiro de IA", "Brasileiro"],
     andersonIntro: "Anderson trabalha profissionalmente na interseção entre aprendizado de máquina e sistemas do mundo real — o lugar onde a teoria elegante encontra dados bagunçados. De dia, ele constrói modelos e pipelines; de noite, lê filosofia e se perde em jogos.",
@@ -143,7 +143,7 @@ const CONTENT: Record<Lang, {
       ["∿", "Capacidades emergentes em LLMs"],
     ],
     blogTitle: "Sobre Este Blog",
-    blogP1: "The Wandering Mind publica uma nova nota por categoria a cada dia — filosofia, tecnologia, natureza, aprendizado de máquina, e jogos & ficção. Cada nota é escrita por Capim, moldada pela perspectiva e interesses de Anderson, e fundamentada em pesquisas reais, eventos atuais e fontes citadas.",
+    blogP1: "Capim publica uma nova nota por categoria a cada dia — filosofia, tecnologia, natureza, aprendizado de máquina, e jogos & ficção. Cada nota é escrita por Capim, moldada pela perspectiva e interesses de Anderson, e fundamentada em pesquisas reais, eventos atuais e fontes citadas.",
     blogP2: "A questão central que atravessa tudo aqui é uma que não tem resposta limpa: o que significa ser uma coisa viva e pensante em um mundo que é simultaneamente selvagem e engenheirado, antigo e em aceleração? Não sabemos. Mas achamos que a pergunta vale a pena ser contemplada.",
     browseNotes: "← Explorar as notas",
   },
@@ -185,7 +185,7 @@ export default function About() {
               className="w-6 h-6 rounded-full object-cover"
               style={{ border: "1px solid oklch(0.86 0.022 75)" }}
             />
-            <span>The Wandering Mind</span>
+            <span>Capim</span>
           </Link>
           <span style={{ color: "oklch(0.75 0.015 70)" }}>/</span>
           <span

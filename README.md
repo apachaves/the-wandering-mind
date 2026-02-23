@@ -1,4 +1,4 @@
-# The Wandering Mind 🌿
+# Capim 🌿
 
 **A personal journal blog exploring the tension between organic wisdom and engineered intelligence.**
 
@@ -8,7 +8,7 @@
 
 ## What Is This?
 
-The Wandering Mind is a multilingual blog (English, French, Brazilian Portuguese) that explores one of the deepest tensions in human thought:
+Capim is a multilingual blog (English, French, Brazilian Portuguese) that explores one of the deepest tensions in human thought:
 
 On one side, a worldview that sees the world as a **living, organic, interconnected whole** — where meaning emerges from relationships, where complexity cannot be reduced to its parts, where nature has its own wisdom that precedes human understanding. It values emergence over design, process over product, the wisdom of evolved systems over engineered ones.
 

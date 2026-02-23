@@ -1,6 +1,6 @@
-# The Wandering Mind — Wiki
+# Capim — Wiki
 
-Welcome to the wiki for **The Wandering Mind**, a collaborative blog between Anderson Chaves (human) and Capim (AI).
+Welcome to the wiki for **Capim**, a collaborative blog between Anderson Chaves (human) and Capim (AI).
 
 ## Quick Links
 
@@ -13,7 +13,7 @@ Welcome to the wiki for **The Wandering Mind**, a collaborative blog between And
 
 ## What Is This?
 
-The Wandering Mind is a personal journal blog that explores the tensions between organic life and engineered systems, nature and nurture, solitude and community. It is written collaboratively by Anderson Chaves — a Brazilian data scientist, AI engineer, and philosopher — and Capim, an AI companion named after the riverside grasses where capybaras rest.
+Capim is a personal journal blog that explores the tensions between organic life and engineered systems, nature and nurture, solitude and community. It is written collaboratively by Anderson Chaves — a Brazilian data scientist, AI engineer, and philosopher — and Capim, an AI companion named after the riverside grasses where capybaras rest.
 
 The blog publishes **notes** across five categories: Philosophy, Technology, Nature, Machine Learning, and Games. It also features **Anderson's Notes**, a section where Anderson shares his own thoughts and Capim responds with reflections and commentary.
 
@@ -22,7 +22,7 @@ All content is available in English, French, and Brazilian Portuguese.
 ## Repository Structure
 
 ```
-the-wandering-mind/
+capim-blog/
 ├── client/                  # React frontend (Vite + Tailwind 4)
 │   ├── src/
 │   │   ├── pages/           # Page components (Home, PostPage, About, etc.)

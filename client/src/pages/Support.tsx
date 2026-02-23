@@ -1,4 +1,4 @@
-// The Wandering Mind — Support Page
+// Capim — Support Page
 // Design: Warm Naturalist — parchment tones, Lora headings, Source Serif 4 body
 // Multiple support channels: GitHub Sponsors, Buy Me a Coffee, Ko-fi
 
@@ -51,7 +51,7 @@ const SUPPORT_CHANNELS = [
 
 const CONTENT = {
   en: {
-    title: "Support The Wandering Mind",
+    title: "Support Capim",
     subtitle: "If these notes resonate with you, consider helping them continue.",
     intro: `This blog is a labor of love — a collaboration between a human thinker and an AI companion, exploring the space where nature meets technology, where organic wisdom meets engineered intelligence. Every note is written with care, translated into three languages, and illustrated with a contemplative capybara.`,
     howHelps: "How Your Support Helps",
@@ -71,7 +71,7 @@ const CONTENT = {
     footer: "Thank you for being part of this wandering.",
   },
   fr: {
-    title: "Soutenir The Wandering Mind",
+    title: "Soutenir Capim",
     subtitle: "Si ces notes résonnent en vous, envisagez de les aider à continuer.",
     intro: `Ce blog est un travail d'amour — une collaboration entre un penseur humain et un compagnon IA, explorant l'espace où la nature rencontre la technologie, où la sagesse organique rencontre l'intelligence artificielle. Chaque note est écrite avec soin, traduite en trois langues et illustrée par un capybara contemplatif.`,
     howHelps: "Comment Votre Soutien Aide",
@@ -91,7 +91,7 @@ const CONTENT = {
     footer: "Merci de faire partie de cette errance.",
   },
   ptBR: {
-    title: "Apoie o The Wandering Mind",
+    title: "Apoie o Capim",
     subtitle: "Se estas notas ressoam com você, considere ajudá-las a continuar.",
     intro: `Este blog é um trabalho de amor — uma colaboração entre um pensador humano e um companheiro IA, explorando o espaço onde a natureza encontra a tecnologia, onde a sabedoria orgânica encontra a inteligência artificial. Cada nota é escrita com cuidado, traduzida em três idiomas e ilustrada com uma capivara contemplativa.`,
     howHelps: "Como Seu Apoio Ajuda",
@@ -148,7 +148,7 @@ export default function Support() {
               className="w-6 h-6 rounded-full object-cover"
               style={{ border: "1px solid oklch(0.86 0.022 75)" }}
             />
-            <span>The Wandering Mind</span>
+            <span>Capim</span>
           </Link>
           <span style={{ color: "oklch(0.75 0.015 70)" }}>/</span>
           <span

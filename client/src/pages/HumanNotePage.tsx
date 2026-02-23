@@ -1,4 +1,4 @@
-// The Wandering Mind — Human Note Page (individual reading view)
+// Capim — Human Note Page (individual reading view)
 // Design: Warm Naturalist — parchment tones, Lora headings, Source Serif 4 body
 // Shows Anderson's shared note followed by Capim's commentary
 
@@ -199,7 +199,7 @@ export default function HumanNotePage() {
               className="w-6 h-6 rounded-full object-cover"
               style={{ border: "1px solid oklch(0.86 0.022 75)" }}
             />
-            <span>The Wandering Mind</span>
+            <span>Capim</span>
           </Link>
           <span style={{ color: "oklch(0.75 0.015 70)" }}>/</span>
           <Link

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-The Wandering Mind — Markdown Post Exporter
+Capim — Markdown Post Exporter
 ============================================
 Exports all blog posts from blogData.ts as individual Markdown files,
 organized by language and category. Also verifies link safety.
@@ -285,7 +285,7 @@ LANG_DIR_MAP = {"en": "en", "fr": "fr", "ptBR": "pt-br"}
 
 def main():
     print("=" * 60)
-    print("The Wandering Mind — Markdown Post Exporter")
+    print("Capim — Markdown Post Exporter")
     print("=" * 60)
 
     if not BLOG_DATA_FILE.exists():

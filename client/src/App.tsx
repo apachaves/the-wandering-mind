@@ -1,4 +1,4 @@
-// The Wandering Mind — App Router
+// Capim — App Router
 // Design: Warm Naturalist — parchment, forest green, cozy intellectual
 // Identity: The tension between organic life and engineered systems
 

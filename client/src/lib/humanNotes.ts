@@ -1,4 +1,4 @@
-// The Wandering Mind — Anderson's Notes
+// Capim — Anderson's Notes
 // Design: Warm Naturalist — parchment tones, forest greens, cozy intellectual
 //
 // STRUCTURE: Each note has id, title, date, andersonNote (raw shared content), capimCommentary (Capim's response)
